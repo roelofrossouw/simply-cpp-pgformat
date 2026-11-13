@@ -1,0 +1,1 @@
+PostgreSQL SQL and PL/pgSQL formatting for simply-cpp, as pgFormatter does it

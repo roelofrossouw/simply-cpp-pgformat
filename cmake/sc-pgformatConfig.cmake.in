@@ -1,0 +1,6 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/SimplyCppFunctions.cmake")
+
+# The libraries link PCRE2's 32-bit library by its path (libpcre2-dev on Ubuntu, pcre2 on Homebrew).
+include("${CMAKE_CURRENT_LIST_DIR}/sc-pgformatTargets.cmake")
