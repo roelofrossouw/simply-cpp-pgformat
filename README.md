@@ -31,6 +31,8 @@ pretty = sc::pgformat::format(sql, settings);
   statement numbering, comment removal, anonymization of literals, vertical alignment of
   CREATE TABLE columns, HTML output, placeholders for code to leave alone, and extra keywords or
   functions (Amazon Redshift's keywords built in).
+- `sc::pgformat::read_config(text)` reads a `.pg_format` file's text (`keyword-case=1` and so on)
+  into options, as `pg_format -c` does.
 - Text is UTF-8 and handled as characters, as Perl does: alignment and wrapping count
   characters, not bytes.
 - Regular expressions run on PCRE2 (its 32-bit library), which matches as Perl does; the

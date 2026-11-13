@@ -62,6 +62,16 @@ namespace sc::pgformat {
     // std::invalid_argument.
     std::string format(std::string_view sql, const options &settings = {});
 
+    // pg_format's configuration file (.pg_format, pg_format -c FILE): "name = value" lines, a line
+    // that doesn't start with a lower-case letter skipped (# comments), the first value of a name
+    // kept. Names are pg_format's long options (keyword-case, spaces, wrap-after, no-extra-line
+    // ...); options it doesn't name keep base's values. Settings pg_format applies from a file are
+    // applied as it does (tabs sets spaces to 1, comma-start and comma-end over comma, redshift);
+    // extra-function and extra-keyword name files, so they're left to the caller (extra-keyword
+    // redshift is taken). A case that isn't 0 to 3, or a number that isn't one, throws
+    // std::invalid_argument naming it.
+    options read_config(std::string_view text, options base = {});
+
     // The version of pgFormatter this follows, "5.11".
     std::string_view pgformatter_version();
 }

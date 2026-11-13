@@ -131,5 +131,29 @@ int main() {
         CHECK_EQ(pgformatter_version(), std::string_view{"5.11"});
     }
 
+    SECTION("A .pg_format file, as pg_format -c reads it");
+    {
+        using namespace sc::pgformat;
+        const auto o = read_config("# comment\nkeyword-case=1\ntype-case = 2 # kept: only the value's first word\nspaces=2\n"
+                                   "wrap-after=20\nno-extra-line=1\nKEYWORD-CASE=3\nspaces=8\ncomma = START\ntabs=0\n");
+        CHECK(o.keyword_case == letter_case::lower);
+        CHECK(o.type_case == letter_case::upper);
+        CHECK_EQ(o.spaces, 2L); // the first spaces= wins
+        CHECK_EQ(o.wrap_after, 20L);
+        CHECK(o.no_extra_line);
+        CHECK(o.comma == comma_position::start);
+        CHECK(!o.tabs);
+        CHECK(read_config("tabs=1\n").tabs);
+        CHECK(read_config("", o).keyword_case == letter_case::lower); // base kept
+        bool refused = false;
+        try {
+            (void) read_config("keyword-case=4\n");
+        } catch (const std::invalid_argument &) {
+            refused = true;
+        }
+        CHECK(refused);
+        CHECK_EQ(format("SELECT A FROM T;", read_config("keyword-case=1\nno-extra-line=1\n")), std::string{"select\n    A\nfrom\n    T;\n"});
+    }
+
     TEST_SUMMARY();
 }
