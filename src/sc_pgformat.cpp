@@ -70,6 +70,7 @@ namespace sc::pgformat {
     namespace {
         bool is_space(const char c) { return c == ' ' || c == '\t' || c == '\r' || c == '\n' || c == '\f' || c == '\v'; }
 
+        // Not sc::lowercase(): this port links no sc library (only pcre2), and this is all it needs
         std::string lower(std::string text) {
             for (auto &c: text) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
             return text;
