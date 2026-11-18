@@ -2,7 +2,7 @@
 // sc::pgformat: PostgreSQL SQL and PL/pgSQL formatted, as pgFormatter 5.11's pg_format does it (a
 // port of its Perl, giving the same output byte for byte):
 //
-//     #include <sc/pgformat/sc_pgformat.h>
+//     #include <sc/pgformat/pgformat.h>
 //
 //     sc::pgformat::options settings;
 //     settings.keyword_case = sc::pgformat::letter_case::lower;

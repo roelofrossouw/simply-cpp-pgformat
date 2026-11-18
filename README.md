@@ -7,7 +7,7 @@ pgFormatter's own test files (82 examples and 195 of PostgreSQL's regression scr
 exactly as `pg_format` prints them, and it is about three times faster.
 
 ```cpp
-#include <sc/pgformat/sc_pgformat.h>
+#include <sc/pgformat/pgformat.h>
 
 std::string pretty = sc::pgformat::format("select a,b from t where c=1;");
 // SELECT

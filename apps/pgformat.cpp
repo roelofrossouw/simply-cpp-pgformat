@@ -3,7 +3,7 @@
 // $XDG_CONFIG_HOME/pg_format/pg_format.conf) and its handling of several input files. Named
 // pgformat so it can be installed beside pgFormatter's pg_format.
 
-#include <sc/pgformat/sc_pgformat.h>
+#include <sc/pgformat/pgformat.h>
 
 #include <sc/core/params.h>
 

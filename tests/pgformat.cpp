@@ -2,7 +2,7 @@
 // pgFormatter's own regression tests use for it (t/02_regress.t; -u 2 always) must give exactly
 // what pg_format printed (resource/expected, made by tools/make_fixtures.sh).
 
-#include <sc/pgformat/sc_pgformat.h>
+#include <sc/pgformat/pgformat.h>
 
 #include "sc_test.h"
 

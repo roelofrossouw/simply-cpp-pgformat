@@ -1,7 +1,7 @@
 // sc-pgformat-demo: a query formatted as pg_format does by default, then with lower-case keywords,
 // two spaces a level and the commas leading.
 
-#include <sc/pgformat/sc_pgformat.h>
+#include <sc/pgformat/pgformat.h>
 
 #include <iostream>
 

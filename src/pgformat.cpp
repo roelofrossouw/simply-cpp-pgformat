@@ -1,4 +1,4 @@
-#include <sc/pgformat/sc_pgformat.h>
+#include <sc/pgformat/pgformat.h>
 
 #include "beautify.h"
 #include "dicts.h"
