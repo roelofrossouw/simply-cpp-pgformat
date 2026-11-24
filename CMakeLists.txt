@@ -9,7 +9,7 @@ get_sc_version()
 message(STATUS "SimplyCPP ${SC_MODULE} Version: ${SC_VERSION}")
 
 # sc::params (and its man pages) for pgformat.
-find_or_install_package(sc-core simply-cpp-dev simply-cpp 3.0.0)
+find_or_install_package(sc-core simply-cpp-dev simply-cpp 4.0.0)
 # PCRE2's 32-bit library: pgFormatter's Perl regular expressions, on text as Perl sees it (a
 # character an element).
 config_or_install_package(libpcre2-32 libpcre2-dev pcre2)
@@ -62,4 +62,4 @@ sc_program_info(pgformat)
 install(TARGETS pgformat RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT tools)
 sc_man_page(pgformat EXTRA ${CMAKE_CURRENT_SOURCE_DIR}/man/pgformat.md COMPONENT tools)
 
-package_sc_module(DEPENDS "simply-cpp (>= 3.0.0~)" DEV_DEPENDS "simply-cpp-dev (>= 3.0.0~)" libpcre2-dev)
+package_sc_module(DEPENDS "simply-cpp (>= 4.0.0~)" DEV_DEPENDS "simply-cpp-dev (>= 4.0.0~)" libpcre2-dev)
